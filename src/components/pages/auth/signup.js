@@ -50,7 +50,6 @@ const SignUp = () => {
                     formData.email,
                     formData.password
                 )
-                console.log(user)
                 const body={
                     fullname:formData.fullname,
                     phoneno:formData.phoneno,

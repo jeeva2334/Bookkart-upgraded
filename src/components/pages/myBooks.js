@@ -40,7 +40,6 @@ const MyBooks = () => {
                             Object.values(data).map(book => {
                                 setMyBooks((oldArray)=>[book])
                             })
-                            console.log(myBooks);
                         }else {
                             setMyBooks("no data")
                         }

@@ -13,8 +13,7 @@ const Navbar = () => {
     useEffect(()=>{
         onAuthStateChanged(auth,user=>{
             if(user){
-                email = user.email;
-                console.log(user);
+              email = user.email;
             }
         })
     },[])
