@@ -1,17 +1,19 @@
 import { useNavigate } from 'react-router-dom';
-import open from '../assets/open.gif'
-import { db } from '../firebase/firebase-config';
-import {set,ref} from 'firebase/database'
+import open from '../assets/Door.gif'
+import { Helmet } from "react-helmet";
 
 const Open = () => {
     const navigate = useNavigate()
     setTimeout(async ()=>{
-        await set(ref(db,'values'),0);
+        // await set(ref(db,'values'),0);
         navigate('/home',{replace:true})
     },30000)
     return ( 
     <>
-        <div className="w-screen h-14 flex justify-center items-center bg-blue-400 rounded-b-lg text-white">
+    <Helmet>
+        <title>Bookkart-Dont colse the page</title>
+    </Helmet>
+        <div className="w-screen h-14 flex justify-center items-center bg-black text-white">
                  <div className="w-screen h-14 flex justify-center items-center text-white font-extrabold text-2xl">Book Kart</div>
              </div>
         <div className=" flex flex-col ml-3 mr-1 justify-center items-center">

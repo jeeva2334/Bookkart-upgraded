@@ -15,3 +15,41 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	background: linear-gradient(-45deg, #23a6d5, #23d5ab) fixed;
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+	color: #fff;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+#target{
+  animation: yourAnimation 5s linear 0s infinite normal none;
+}
+
+
+
+@keyframes yourAnimation{
+  0% {
+  }
+  50% {
+      transform:  rotate(180deg);
+  }
+  100% {
+      transform:  rotate(360deg);
+  }
+}

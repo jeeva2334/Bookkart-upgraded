@@ -5,7 +5,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import {ref,onValue,get,child} from 'firebase/database';
 import not from '../assets/notfound.gif';
-import { uid } from "uid";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const MyBooks = () => {
     const navigate = useNavigate()
@@ -21,9 +22,13 @@ const MyBooks = () => {
             }
         })
     },[])
-    console.log(uid)
     return ( 
         <div>
+            <Helmet>
+                <title>
+                    Bookkart-My Books
+                </title>
+            </Helmet>
             <Navbar />
             <div className=' flex justify-center items-center'>
                 <button onClick={()=>{
@@ -41,30 +46,25 @@ const MyBooks = () => {
                         }
                     })
                 }}
-                    className='w-96 bg-blue-500 p-2 text-white text-xl font-extrabold rounded-xl mt-2'
+                    className=' w-72 bg-gray-600 p-2 text-white text-xl font-extrabold rounded-xl mt-2'
                 >Take a look at My Books</button>
             </div>
-            {myBooks !=="no data" ? myBooks.map((books)=>{
-                return(
-                <div>
-                    <div className="flex justify-center items-center mt-5">
-                        <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <img className="rounded-t-lg" src={books.img} alt="" />
-                            <div className="p-5">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{books.title}</h5>
-                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{books.author}</p>
-                                <button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={()=>{navigate(`/return/${books.id}`,{replace:true})}}>
-                                    Return Book
-                                </button>
-                            </div>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+                {myBooks !=="no data" ? myBooks.map((book)=>(
+                    <Link to={`/return/${book.id}`} className='flex justify-center items-center mb-3 mt-1'>
+                        <div className="p-4 w-80 h-96 flex flex-col justify-start items-center bg-white bg-opacity-20 rounded-xl">
+                            <img src={book.img} alt="book-kart" className="w-[300px] rounded"/>
+                            <h1 className="text-xl font-bold">{book.title}</h1>
+                            <p className="ml-16 mb-2 font-semibold">-{book.author}</p>
+                            <button className="w-full bg-gray-600 color-white mt-4 h-9 rounded-lg cursor-pointer hover:bg-gray-500">Take Book</button>
                         </div>
-                    </div>
-                </div>
-                )
-            }):<div className="flex flex-col justify-center items-center text-2xl text-red-400 font-bold">
-                    <img src={not} alt='' />
-                    <h1>You Haven't took any books</h1>
-                </div>}
+                    </Link>
+                    )
+                ):<div className="flex flex-col justify-center items-center text-2xl text-white mt-7 font-bold">
+                        <img src={not} alt='' />
+                        <h1>You Haven't took any books</h1>
+                    </div>}
+            </div>
         </div>
      );
 }

@@ -14,10 +14,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route  path='/signup' element={<SignUp />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/home' element={<Home />} />
           <Route path='/books/:id' element={<BooksDetails />} />
-          <Route path='/books/mybooks' element={<MyBooks />} />
+          <Route path='/mybooks' element={<MyBooks />} />
           <Route path='/return/:id' element={<MyBooksDetails />} />
           <Route path='/open' element={<Open />} />
           <Route path='*' element={<Error />} />
