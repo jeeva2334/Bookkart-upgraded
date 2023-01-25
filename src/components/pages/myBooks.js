@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 import { auth,db } from "../firebase/firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import {ref,onValue,get,child} from 'firebase/database';
+import {ref,onValue} from 'firebase/database';
 import not from '../assets/notfound.gif';
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -22,6 +22,19 @@ const MyBooks = () => {
             }
         })
     },[])
+    async function getBooks(){
+        onValue(ref(db,`${uiid}/`),snapshot =>{
+            setMyBooks([])
+            const data = snapshot.val()
+            if(data !== null){
+                Object.values(data).map(book => {
+                    setMyBooks((oldArray)=>[...oldArray,book])
+                })
+            }else {
+                setMyBooks("no data")
+            }
+        })
+    }
     return ( 
         <div>
             <Helmet>
@@ -30,15 +43,14 @@ const MyBooks = () => {
                 </title>
             </Helmet>
             <Navbar />
-            <div className=' flex justify-center items-center'>
+            <div className='flex justify-center items-center'>
                 <button onClick={()=>{
-                    const dbRef = ref(db);
                     onValue(ref(db,`${uiid}/`),snapshot =>{
                         setMyBooks([])
                         const data = snapshot.val()
                         if(data !== null){
                             Object.values(data).map(book => {
-                                setMyBooks((oldArray)=>[book])
+                                setMyBooks((oldArray)=>[...oldArray,book])
                             })
                         }else {
                             setMyBooks("no data")
@@ -46,12 +58,13 @@ const MyBooks = () => {
                     })
                 }}
                     className=' w-72 bg-gray-600 p-2 text-white text-xl font-extrabold rounded-xl mt-2'
+                    id="myBooks"
                 >Take a look at My Books</button>
             </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="p-6 grid grid-cols-1 gap-5 md:grid-cols-3">
                 {myBooks !=="no data" ? myBooks.map((book)=>(
-                    <Link to={`/return/${book.id}`} className='flex justify-center items-center mb-3 mt-1'>
-                        <div className="p-4 w-80 h-96 flex flex-col justify-start items-center bg-white bg-opacity-20 rounded-xl">
+                    <Link to={`/return/${book.id}`} className='flex justify-center items-center mb-3 mt-1' key={book.id}>
+                        <div className="p-4 w-80 h-96 flex flex-col justify-start items-center bg-white bg-opacity-20 rounded-xl" id={`card${book.id}`}>
                             <img src={book.img} alt="book-kart" className="w-[300px] rounded"/>
                             <h1 className="text-xl font-bold">{book.title}</h1>
                             <p className="ml-16 mb-2 font-semibold">-{book.author}</p>

@@ -58,7 +58,7 @@ const MyBooksDetails = () => {
                 }
                 <div className="w-full flex flex-col justify-center items-end">
                     <p>Peaked your intrest ?</p>
-                    <button className="mt-2 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-500" onClick={click}>Return-Book</button>
+                    <button className="mt-2 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-500" onClick={click} id="returnBtn">Return-Book</button>
                 </div>
             </div>
         </div>

@@ -61,7 +61,7 @@ const Login = () => {
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
                             <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" onChange={handleChange} required />
                         </div>
-                        <button type="button" className="w-full text-white bg-gray-600 hover:bg-gray-600 focus:ring-4 focus:outline-nonefont-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700" onClick={Submit}>Login to your account</button>
+                        <button type="button" className="w-full text-white bg-gray-600 hover:bg-gray-600 focus:ring-4 focus:outline-nonefont-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700" onClick={Submit} id="loginBtn">Login to your account</button>
                         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                             Not registered? <Link to="/signup" className="text-blue-700 hover:underline dark:text-blue-500">Create account</Link>
                         </div>

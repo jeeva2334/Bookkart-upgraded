@@ -38,7 +38,7 @@ const Navbar = () => {
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <FontAwesomeIcon icon={navbarOpen ? faTimes : faBars} />
+              <FontAwesomeIcon icon={navbarOpen ? faTimes : faBars} id="openBtn" />
             </button>
           </div>
           <div
@@ -66,7 +66,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="px-3 py-2 flex items-center bg-gray-500 rounded ml-4 text-xs uppercase font-bold leading-snug text-white hover:opacity-75" onClick={signOt}>Logout</button>
+                <button className="px-3 py-2 flex items-center bg-gray-500 rounded ml-4 text-xs uppercase font-bold leading-snug text-white hover:opacity-75" onClick={signOt} id="logoutBtn">Logout</button>
               </li>
             </ul>
           </div>
