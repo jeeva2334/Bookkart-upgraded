@@ -62,7 +62,7 @@ const Home = () => {
                 {myBooks !=="no data" ? myBooks?.map((book)=>(
                     <Link to={`/books/${book.id}`} className='flex justify-center items-center mb-3 mt-1'  key={book.id} id={`card${book.id}`}>
                         <div className="p-4 w-80 h-96 flex flex-col justify-start items-center bg-white bg-opacity-20 rounded-xl">
-                            <img src={book.image} alt="book-kart" className="w-[300px] rounded"/>
+                            <img src={book.image} alt="book-kart" className="w-[200px] rounded"/>
                             <h1 className="text-xl font-bold">{book.title}</h1>
                             <p className="ml-16 mb-2 font-semibold">-{book.author}</p>
                             <button className="w-full bg-gray-600 color-white mt-4 h-9 rounded-lg cursor-pointer hover:bg-gray-500">Take Book</button>
