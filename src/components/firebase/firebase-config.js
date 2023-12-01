@@ -4,14 +4,14 @@ import {getFirestore} from 'firebase/firestore'
 import {getDatabase} from 'firebase/database'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBqTzMcHJb0aCGp9a5_7A0yy4JTdU4_px0",
-  authDomain: "bookkart-a52a7.firebaseapp.com",
-  databaseURL: "https://bookkart-a52a7-default-rtdb.firebaseio.com",
-  projectId: "bookkart-a52a7",
-  storageBucket: "bookkart-a52a7.appspot.com",
-  messagingSenderId: "941929603543",
-  appId: "1:941929603543:web:0bb0451c0a443aad392b92",
-  measurementId: "G-EPM4RD8ESM"
+  apiKey: "AIzaSyBp8tvOvosSdA8W20g0gk5S0REucbErtI4",
+  authDomain: "bookkart-ce86f.firebaseapp.com",
+  databaseURL: "https://bookkart-ce86f-default-rtdb.firebaseio.com",
+  projectId: "bookkart-ce86f",
+  storageBucket: "bookkart-ce86f.appspot.com",
+  messagingSenderId: "628537848548",
+  appId: "1:628537848548:web:7b6412dd66c69565f432f1",
+  measurementId: "G-BHRJ6QZV1T"
 };
 
 const app = initializeApp(firebaseConfig);

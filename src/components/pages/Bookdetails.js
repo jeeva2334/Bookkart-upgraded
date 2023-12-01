@@ -64,9 +64,9 @@ const BooksDetails = () => {
                 }
                 {books &&
                     <>
-                    <Helmet>
-                        <title>Bookkart-{`${books.title}`}</title>
-                    </Helmet>
+                        <Helmet>
+                            <title>Bookkart-{`${books.title}`}</title>
+                        </Helmet>
                         <div className="container mt-20 p-7 flex flex-col justify-start items-center">
                             <h1 className="text-3xl font-bold">{books.title}</h1>
                             <img src={books.image} alt={books.title} className="mt-5" />
@@ -76,7 +76,7 @@ const BooksDetails = () => {
                 }
                 {books.quant === 1?<div className="w-full flex flex-col justify-center items-end">
                         <p>Peaked your intrest ?</p>
-                        <button className="mt-2 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-500" onClick={click} id="takebookBtn">Take-Book</button>
+                        <button className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" onClick={click} id="takebookBtn">Take-Book</button>
                     </div>:<div className="w-full flex flex-col justify-center items-end">
                         <p>Peaked your intrest ?</p>
                         <button className="mt-2 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-gray-500" id="takebookBtn" onClick={()=>alert("Book has been taken")}>Book has been taken</button>

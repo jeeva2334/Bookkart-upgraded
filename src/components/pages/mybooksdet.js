@@ -45,20 +45,25 @@ const MyBooksDetails = () => {
             <Navbar />
             <div className="p-4">
                 {books &&
-                        <>
-                            <Helmet>
-                                <title>Bookkart-{`${books.title}`}</title>
-                            </Helmet>
-                            <div className="container mt-20 p-7 flex flex-col justify-start items-center">
-                                <h1 className="text-3xl font-bold">{books.title}</h1>
-                                <img src={books.image} alt={books.title} className="mt-5" />
-                                <p className="mt-5">{books.description}</p>
+                    <>
+                        <Helmet>
+                            <title>Bookkart-{`${books.title}`}</title>
+                        </Helmet>
+                        <div className="container mt-20 p-7 flex flex-col justify-start items-start ">
+                            <div className="flex md:flex-row-reverse flex-col mt-5">
+                                <div>
+                                    <h1 className="text-3xl font-bold">{books.title}</h1>
+                                    <p className="ml-16 mt-4 text-gray-100 font-semibold">by {books.author}</p>
+                                </div>
+                                <img src={books.image} alt={books.title} className="mr-4 w-60 rounded-md" />
                             </div>
+                            <p className="mt-5">{books.description}</p>
+                        </div>
                     </>
                 }
                 <div className="w-full flex flex-col justify-center items-end">
                     <p>Returning book?</p>
-                    <button className="mt-2 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-gray-500" onClick={click} id="returnBtn">Return-Book</button>
+                    <button className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" onClick={click} id="returnBtn">Return-Book</button>
                 </div>
             </div>
         </div>
